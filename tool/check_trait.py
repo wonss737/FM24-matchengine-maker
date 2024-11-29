@@ -16,7 +16,7 @@ def find_key(data_all):
             continue
 
 
-path = "db/fmf_original"
+path = "db"
 output_dir = "traits"
 
 exclude = [

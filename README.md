@@ -35,6 +35,8 @@
 
 7. Move the generated simatch.fmf to the FM24 installation folder.
 
+You can see instruction example at src/usage_example.mp4
+
 
 # Is it really works?
 Yes, it works. Let me explain how it works.
