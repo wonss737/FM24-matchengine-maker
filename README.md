@@ -1,4 +1,4 @@
-# fm24-matchengine-maker
+# FM24-matchengine-maker
 
 # Instructions
 1. Download below files:
