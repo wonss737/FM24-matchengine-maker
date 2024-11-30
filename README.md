@@ -1,6 +1,7 @@
 # FM24-matchengine-maker
 
-This git will be updated until FM25.
+This git will be updated only until FM25 is released.
+After that, it will be closed.
 
 # Change Example
 Here is the example when you extremely decrease movement speed.
