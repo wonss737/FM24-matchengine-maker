@@ -2,6 +2,13 @@
 
 This git will be updated until FM25.
 
+# Change Example
+Here is the example when you extremely decrease movement speed.
+
+![change_example1](https://github.com/wonss737/fm24-matchengine-maker/blob/main/src/change_example1.gif)
+
+![change_example2](https://github.com/wonss737/fm24-matchengine-maker/blob/main/src/change_example2.gif)
+
 # Instructions
 1. Download below files:
 
@@ -63,11 +70,6 @@ Adding new entries will not have any effect.
 
 (For example, adding "lob_pass_success_rate": 100 to the JSON file will not change anything in the match engine.)
 
-Here is the example when you extremely decrease movement speed.
-
-![change_example1](https://github.com/wonss737/fm24-matchengine-maker/blob/main/src/change_example1.gif)
-
-![change_example2](https://github.com/wonss737/fm24-matchengine-maker/blob/main/src/change_example2.gif)
 
 # Modifiable Values and Default Settings
 This tool only allows you to edit certain predefined values. Adding new entries to the JSON file will not affect the match engine.
