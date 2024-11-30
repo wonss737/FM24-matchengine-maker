@@ -61,7 +61,9 @@ This tool only edits existing values in physical_constraints_update.jsb.
 
 Adding new entries will not have any effect. 
 
-For example, adding "lob_pass_success_rate": 100 to the JSON file will not change anything in the match engine.
+(For example, adding "lob_pass_success_rate": 100 to the JSON file will not change anything in the match engine.)
+
+Here is the example when you extremely decrease movement speed.
 
 ![change_example1](https://github.com/wonss737/fm24-matchengine-maker/blob/main/src/change_example1.gif)
 
