@@ -34,7 +34,7 @@ def convert_value(data_all, head, tail, update_value):
     return before, after, data_all
 
 
-def convert_jsb(jsb_file, key_file):
+def convert_jsb(jsb_file, key_file, update_jsb):
     data_all = load(jsb_file)
     update_values = load_value(key_file)
 
@@ -51,15 +51,17 @@ def convert_jsb(jsb_file, key_file):
             print(key, before, "->", after)
         before, after, data_all = convert_value(data_all, head2, tail2, update_value)
 
-    save(data_all, "physical_constraints_update.jsb")
+    save(data_all, update_jsb)
 
 
 def main():
     github_url = "https://github.com/wonss737/fm24-matchengine-maker.git"
-    print(f"You can get more informatino at {github_url}")
+    print(f"You can get more informatino at {github_url}\n")
+
     original_jsb = "physical_constraints.jsb"
     update_json = "physical_constraints.json"
-    convert_jsb(original_jsb, update_json)
+    update_jsb = "physical_constraints_update.jsb"
+    convert_jsb(original_jsb, update_json, update_jsb)
 
 
 if __name__ == "__main__":

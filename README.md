@@ -1,5 +1,7 @@
 # FM24-matchengine-maker
 
+This git will be updated until FM25.
+
 # Instructions
 1. Download below files:
 
@@ -13,7 +15,7 @@
 
     (Do not add new entries, as they will not have any effect.)
 
-    (For detailed descriptions of the values, refer to: FMKorea link.)
+    (For detailed descriptions of the values, refer to "Modifiable Values and Default Settings")
 
 3. After editing physical_constraints.json, run main.exe.
 
@@ -21,19 +23,19 @@
 
 4. Move the newly generated physical_constraints_update.jsb into the physics folder located inside the simatch folder.
 
+    (You can create simatch folder using "Football Manager 2024 Resource Archiver".)
+
     Rename the moved file from physical_constraints_update.jsb to physical_constraints.jsb.
 
     (Overwrite or delete the original physical_constraints.jsb.)
 
-5. Launch "Football Manager 2024 Resource Archiver" from Steam.
+5. Launch "Football Manager 2024 Resource Archiver".
 
     (If it is not installed, go to Steam's "Tools" section and install it.)
 
-6. Create Archive in the Resource Archiver.
+    Create simatch.fmf using Resource Archiver.
 
-    Choose the simatch folder where you placed the new physical_constraints_update.jsb.
-
-7. Move the generated simatch.fmf to the FM24 installation folder.
+6. Move the generated simatch.fmf to the FM24 installation folder.
 
 You can see instruction example at src/usage_example.mp4
 
