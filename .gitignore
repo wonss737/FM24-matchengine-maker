@@ -1,4 +1,9 @@
 **__pycache__**
+pyrightconfig.json
 
 db/*
 traits/*
+
+dist/*
+temp/*
+*update.jsb

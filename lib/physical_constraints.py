@@ -1,13 +1,51 @@
-import json
+from lib.hexadecimal import merge_hexadecimal, get_word
 
 
-def load_value(filename):
-    with open(filename, "r") as rf:
-        keys = json.load(rf)
+def find_key(data_all):
+    end_of_keys = []
+
+    end = -1
+    for i in range(len(data_all)):
+        if data_all[i] == b"\x02" or data_all[i] == b"\x82":
+            if i < end + 6:
+                continue
+            end_of_keys.append(i)
+            end = i
+
+    keys = {}
+    for tail, next_tail in zip(end_of_keys, end_of_keys[1:]):
+        key = ""
+        head = tail + 6
+        for letter in data_all[head:next_tail]:
+            try:
+                key += letter.decode("ascii")
+            except:
+                break
+
+        if key in keys:
+            key = key + "_v2"
+
+        word = get_word(data_all, next_tail)
+        value = merge_hexadecimal(word)
+        keys[key] = {"head": head, "tail": next_tail, "value": value}
+
     return keys
 
 
-jsb_value_location = {
+def find_index(data_all, msg):
+    big_len = len(data_all)
+    small_len = len(msg)
+
+    msg = [bytes(m, "utf-8") for m in msg]
+    for i in range(big_len - small_len + 1):
+        if data_all[i : i + small_len] == msg:
+            for j in range(len(data_all[i:])):
+                if data_all[i:][j] == b"\x02":
+                    print(data_all[i : i + j + 1])
+                    return i + j
+
+
+value_location = {
     "acceleration_scaler": {
         "head": 41,
         "tail": 45,

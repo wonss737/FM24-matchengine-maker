@@ -2,8 +2,8 @@ import os
 import sys
 
 from lib.hexadecimal import get_word, merge_hexadecimal, split_hexadecimal
-from lib.jsb_info import load_value, jsb_value_location
-from lib.util import save, load
+from lib.physical_constraints import value_location
+from lib.util import save, load, load_json
 
 
 def notice(key, update_value, location):
@@ -34,36 +34,35 @@ def convert_value(data_all, head, tail, update_value):
     return before, after, data_all
 
 
-def convert_jsb(jsb_file, key_file, update_jsb):
-    data_all = load(jsb_file)
-    update_values = load_value(key_file)
+def update_physical_constraints(jsb_file, json_file, update_file):
+    jsb_data = load(jsb_file)
+    update_values = load_json(json_file)
 
     for key in update_values:
         update_value = update_values[key]
-        notice(key, update_value, jsb_value_location)
-        head1 = jsb_value_location[key]["head"]
-        tail1 = jsb_value_location[key]["tail"]
-        head2 = jsb_value_location[key]["head2"]
-        tail2 = jsb_value_location[key]["tail2"]
+        notice(key, update_value, value_location)
+        head1 = value_location[key]["head"]
+        tail1 = value_location[key]["tail"]
+        head2 = value_location[key]["head2"]
+        tail2 = value_location[key]["tail2"]
 
-        before, after, data_all = convert_value(data_all, head1, tail1, update_value)
+        before, after, jsb_data = convert_value(jsb_data, head1, tail1, update_value)
         if before != after:
             print(key, before, "->", after)
-        before, after, data_all = convert_value(data_all, head2, tail2, update_value)
+        before, after, jsb_data = convert_value(jsb_data, head2, tail2, update_value)
 
-    save(data_all, update_jsb)
+    save(jsb_data, update_file)
 
 
 def main():
-    github_url = "https://github.com/wonss737/fm24-matchengine-maker.git"
-    print(f"You can get more informatino at {github_url}\n")
-
     original_jsb = "physical_constraints.jsb"
     update_json = "physical_constraints.json"
     update_jsb = "physical_constraints_update.jsb"
-    convert_jsb(original_jsb, update_json, update_jsb)
+    update_physical_constraints(original_jsb, update_json, update_jsb)
 
 
 if __name__ == "__main__":
+    github_url = "https://github.com/wonss737/fm24-matchengine-maker.git"
+    print(f"You can get more informatino at {github_url}\n")
     main()
     os.system("pause")

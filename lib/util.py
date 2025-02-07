@@ -1,3 +1,5 @@
+import json
+
 def save(data_all, save_name):
     save_byte = bytearray()
     for data in data_all:
@@ -19,3 +21,9 @@ def load(file_name):
         data_all.append(data)
 
     return data_all
+
+
+def load_json(filename):
+    with open(filename, "r") as rf:
+        keys = json.load(rf)
+    return keys
